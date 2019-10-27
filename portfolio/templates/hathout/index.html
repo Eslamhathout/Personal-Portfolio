@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+    {% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Eslam Hathout</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <!-- <link href="album.css" rel="stylesheet"> -->
+  </head>
+  <body>
+    <header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">About</h4>
+          <p class="text-muted">Specialties: Python Development, IoT, Machine Learning, Data Science, NLP, and RPA.<br \>
+            A software engineer who experienced in manipulating data and telling a story about it. </p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Contact</h4>
+          <ul class="list-unstyled">
+            <li><a href="https://www.linkedin.com/in/eslam-hathout/" class="text-white">LinkedIn</a></li>
+            <li><a href="mailto:i.a.hathout@gmail.com" class="text-white">Email me</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center">
+        <strong>Home</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main role="main">
+
+  <section class="jumbotron text-center" style="padding-left: 210px;">
+    <div class="container" style="position:relative;width:40%;text-align:left;float: left;">
+      <h1 class="jumbotron-heading" style="text-align:center;">Eslam Hathout</h1>
+      <p class="lead text-muted">
+          <br \> Bio:<br \> 
+        I am an eperienced software developer who loves building stuff from IoT to Machine Learning and even RPA.<br \><br \>
+        Experience:<br \>
+        1- Python Developer Freelancer: I've been working on python projects since 2016. I've built many projects related to web scraping, web projects, machine learning, IoT, and NLP.<br />
+        2- Robotic Process Automation Engineer at Vodafone: I joined Vodafone sience Jul 2018 as a AI and Automation engineer building automation projects using RPA tool such as Ui-Path, Blueprism, Python, and Scrapy.<br />
+
+      </p>
+    </div>
+    <div class="container"style="width:20%;">
+      <p >
+        
+        <img src="{% static 'img1.jpg' %}"></img>
+        
+      </p>
+    </div>
+
+  </section>
+
+
+  <div class="album py-5 bg-light">
+    <div class="container"> 
+      <div class="row">
+
+        
+                <br/>
+                
+                <h1 class ="card-text"> Recent Projects </h1>
+                
+                <div class="navbar navbar-dark bg-dark shadow-sm">
+              
+                    <h5 class="row">--------------------------------------------------------------------------------------------------------------------------------------------</h5>
+                {% for job in Jobs %}
+
+                <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    
+                   <img class="card-img-top" src="{{ job.image.url }}">
+                    <div class="card-body">
+                    <p class="card-text">{{ job.summary }}</p>
+                  
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                        <a href="{{ job.github_link }}"><button type="button" class="btn btn-sm btn-outline-secondary">Github Link</button></a>
+                        <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                        </div>
+                        <small class="text-muted">{{ job.Category }}</small>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {% endfor %}
+                <br/>
+                <a href="{% url 'jobs' %}" class="text-muted"><h3>+ Browse More</h3></a>
+                <h5 class="row">--------------------------------------------------------------------------------------------------------------------------------------------</h5>
+              </div><br />
+
+                <h1 class ="card-text"><br \> Recent Certificates</h1>
+                <div class="navbar navbar-dark bg-dark shadow-sm">
+                  
+   
+                    <h5 class="row">--------------------------------------------------------------------------------------------------------------------------------------------</h5>
+           
+                
+                <br/>
+                {% for cert in Certificates %}
+
+                <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    
+                    <img class="card-img-top" src="{{ cert.image.url }}">
+                    <div class="card-body">
+                    <p class="card-text">{{ cert.name }}</p>
+                    
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <a href="{{ cert.link }}"><button type="button" class="btn btn-sm btn-outline-secondary">Certificate Link</button></a>
+                        <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                        </div>
+                        <small class="text-muted">{{ cert.Category }}</small>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {% endfor %}
+                <a href="{% url 'certificates' %}" class="text-muted"><h3>+ Browse More</h3></a>
+                <h5 class="row">--------------------------------------------------------------------------------------------------------------------------------------------</h5>
+              </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<div class="navbar navbar-dark bg-dark shadow-sm">
+  <div class="container">
+    <a href="#" class="text-muted"><p class="navbar-brand d-flex align-items-center">Back to top</p></a></div>
+  </div>
+<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'tooltip.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>
